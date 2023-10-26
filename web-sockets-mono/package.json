@@ -5,15 +5,19 @@
   "scripts": {
     "types:lint": "nx lint types",
     "server:lint": "nx lint ws-server",
-    "server:start": "nx serve ws-server"
+    "server:start": "nx serve ws-server",
+    "webapp:lint": "nx lint webapp",
+    "webapp:start": "nx serve webapp"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
+    "@angular/cdk": "~16.2.10",
     "@angular/common": "~16.2.0",
     "@angular/compiler": "~16.2.0",
     "@angular/core": "~16.2.0",
     "@angular/forms": "~16.2.0",
+    "@angular/material": "~16.2.10",
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
@@ -33,6 +37,7 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "~16.2.0",
     "@angular/language-service": "~16.2.0",
+    "@angular/material": "^16.2.10",
     "@nx/esbuild": "17.0.2",
     "@nx/eslint": "17.0.2",
     "@nx/eslint-plugin": "17.0.2",
