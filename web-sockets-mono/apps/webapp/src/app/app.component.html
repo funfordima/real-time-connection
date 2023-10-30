@@ -1,2 +1,42 @@
-<web-sockets-mono-nx-welcome></web-sockets-mono-nx-welcome>
+<ng-container  *ngIf="currentUser$ | async as currentUser" >
+  <div class="login-state">
+    <ng-container *ngIf="!currentUser?.name">
+      <mat-form-field>
+        <input #userName matInput placeholder="What's your name?">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onConnect(userName)">Connect</button>
+    </ng-container>
+
+    <ng-container *ngIf="currentUser?.name">
+      <h3>Logged in as: {{ currentUser.name }}</h3>
+    </ng-container>
+  </div>
+
+  <div class="user-list">
+    <mat-list role="list">
+      <mat-list-item
+        *ngFor="let user of userList$ | async"
+        [class.active]="user.id === currentUser?.id"
+        role="listitem"
+      >
+        {{ user.name}} #{{ user.id }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="chat-area">
+    <mat-card *ngFor="let message of messageList" [class.active]="message.author.id === currentUser?.id">
+      <p>{{ message.author.name }}</p>
+      <pre>{{ message.contents }}</pre>
+    </mat-card>
+  </div>
+</ng-container>
+
+<div class="chat-input">
+  <mat-form-field appearance="outline">
+    <input #chatInput matInput placeholder="What's in your mind?" (keyup.enter)="onSend(chatInput)">
+  </mat-form-field>
+</div>
+
 <router-outlet></router-outlet>

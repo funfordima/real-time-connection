@@ -32,6 +32,14 @@ export class WsHandler {
 
     console.log(`Received data: ${payload}`);
 
+    switch(payload.event) {
+      case 'chat': {
+        this.userManager.relayChat(socket, payload);
+
+        break;
+      }
+    }
+
     this.userManager.sendToAll(payload);
   }
 

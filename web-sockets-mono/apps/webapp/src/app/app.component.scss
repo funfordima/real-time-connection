@@ -1,0 +1,52 @@
+:host {
+  display: grid;
+  grid-template-areas:
+  "header login-state"
+  "user-list chat-area"
+  "user-list chat-input";
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+
+.login-state {
+  grid-area: login-state;
+
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.header {
+  grid-area: header;
+}
+
+.user-list {
+  grid-area: user-list;
+
+  mat-list-item.active {
+    background-color: beige;
+  }
+}
+
+.chat-area {
+  grid-area: chat-area;
+
+  & mat-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    max-width: 400px;
+
+    &.active {
+      background-color: beige;
+    }
+  }
+}
+
+.chat-input {
+  grid-area: chat-input;
+
+  & mat-form-field {
+    display: block;
+    max-width: 400px;
+  }
+}

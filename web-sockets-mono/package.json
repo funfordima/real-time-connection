@@ -7,7 +7,9 @@
     "server:lint": "nx lint ws-server",
     "server:start": "nx serve ws-server",
     "webapp:lint": "nx lint webapp",
-    "webapp:start": "nx serve webapp"
+    "webapp:start": "nx serve webapp",
+    "start": "npx nx run-many -t serve",
+    "lint": "npx nx run-many -t lint"
   },
   "private": true,
   "dependencies": {
