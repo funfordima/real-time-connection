@@ -6,12 +6,14 @@
     "server:lint": "nx lint server",
     "server:start": "nx serve server",
     "react-web:lint": "nx lint react-web",
-    "react-web:start": "nx serve react-web"
+    "react-web:start": "nx serve react-web",
+    "start": "npx nx run-many -t serve",
+    "lint": "npx nx run-many -t lint"
   },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.2",
-    "axios": "^1.0.0",
+    "axios": "^1.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "nodemon": "^3.0.1",
