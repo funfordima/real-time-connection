@@ -1,0 +1,31 @@
+{
+  "name": "utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/navigation/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/navigation",
+        "main": "libs/navigation/src/index.ts",
+        "tsConfig": "libs/navigation/tsconfig.lib.json",
+        "assets": ["libs/navigation/*.md"],
+        "generatePackageJson": true,
+        "format": ["cjs"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/navigation/**/*.ts",
+          "libs/navigation/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
